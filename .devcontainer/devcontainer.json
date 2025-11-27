@@ -1,0 +1,18 @@
+{
+  "name": "Tailscale SSH DevContainer",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": ["--privileged"],
+  "remoteUser": "root",
+  "postStartCommand": "bash .devcontainer/startup.sh",
+  "containerEnv": {
+    "TAILSCALE_AUTHKEY": "${TAILSCALE_AUTHKEY}"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "version": "latest",
+      "password": "root"
+    }
+  }
+}
